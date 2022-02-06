@@ -71,12 +71,16 @@
 # TODO!
 
 # Generate models and tables, according to the domain model
-
+#rails generate model Movie 
 
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
-# TODO!
+movie1 = Movie.new
+movie1.title = "Batman Begins"
+movie1.year_released = 2005
+movie1.rated = "PG-13"
+movie1.save
 
 # Prints a header for the movies output
 puts "Movies"
