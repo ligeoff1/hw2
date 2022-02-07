@@ -83,11 +83,28 @@ values = {
   title: "Batman Begins",
   year_released: 2005, 
   rated: "PG-13",
+  director: "Christopher Nolan"
 }
 movie = Movie.new(values)
 movie.save
 
+values = {
+  title: "The Dark Knight",
+  year_released: 2008, 
+  rated: "PG-13",
+  director: "Christopher Nolan"
+}
+movie = Movie.new(values)
+movie.save
 
+values = {
+  title: "The Dark Knight Rises",
+  year_released: 2012, 
+  rated: "PG-13",
+  director: "Christopher Nolan"
+}
+movie = Movie.new(values)
+movie.save
 
 # Prints a header for the movies output
 puts "Movies"

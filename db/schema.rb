@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_02_06_080004) do
     t.string "title"
     t.integer "year_released"
     t.string "rated"
+    t.string "director"
     t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
