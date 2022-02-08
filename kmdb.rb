@@ -151,13 +151,28 @@ values = {name: "Christopher Nolan"}
 person = Person.new(values)
 person.save
 
+#Creating Roles 
+values = {character_name: "Bruce Wayne", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Christian Bale"})[0],}
+role = Role.new(values)
+role.save
 
+values = {character_name: "Alfred", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Michael Caine"})[0],}
+role = Role.new(values)
+role.save
 
+values = {character_name: "Ra's Al Ghul", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Liam Neeson"})[0],}
+role = Role.new(values)
+role.save
 
+values = {character_name: "Rachel Dawes", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Katie Holmes"})[0],}
+role = Role.new(values)
+role.save
 
+values = {character_name: "Commissioner Gordon", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Gary Oldman"})[0],}
+role = Role.new(values)
+role.save
 
-
-
+puts Role.all.inspect
 
 # Prints a header for the movies output
 puts "Movies"
