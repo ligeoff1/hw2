@@ -257,5 +257,5 @@ puts ""
 # TODO!
 roles = Role.all
 for role in roles
-  puts "#{role.movie.title} #{role.person.name} #{role.character.name}"
+  puts "#{role.movie.title} #{role.person.name} #{role.character_name}"
 end
