@@ -79,7 +79,7 @@ Role.destroy_all
 #rails generate model Person 
 #rails generate model Role 
 #rails db:migrate
-
+#See db/migrate tables for column header additions 
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
@@ -106,6 +106,14 @@ values = {
 }
 movie = Movie.new(values)
 movie.save
+
+batmanbegins = Movie.where({ title: "Batman Begins" })[0]
+darkknight = Movie.where({ title: "The Dark Knight" })[0]
+darkknightrises = Movie.where({ title: "The Dark Knight Rises" })[0]
+
+puts Movie.all.inspect
+
+#Assigning the roles to Batman Begins 
 
 # Prints a header for the movies output
 puts "Movies"

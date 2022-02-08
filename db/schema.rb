@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2022_02_08_021228) do
 
   create_table "movies", force: :cascade do |t|
-    t.integer "movie_id"
     t.string "title"
     t.integer "year_released"
     t.string "rated"
