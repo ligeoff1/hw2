@@ -70,10 +70,14 @@
 # Use `Model.destroy_all` code.
 # TODO!
 Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model
 #TODO!
 #rails generate model Movie 
+#rails generate model Person 
+#rails generate model Role 
 #rails db:migrate
 
 
@@ -83,7 +87,6 @@ values = {
   title: "Batman Begins",
   year_released: 2005, 
   rated: "PG-13",
-  director: "Christopher Nolan"
 }
 movie = Movie.new(values)
 movie.save
@@ -92,7 +95,6 @@ values = {
   title: "The Dark Knight",
   year_released: 2008, 
   rated: "PG-13",
-  director: "Christopher Nolan"
 }
 movie = Movie.new(values)
 movie.save
@@ -101,7 +103,6 @@ values = {
   title: "The Dark Knight Rises",
   year_released: 2012, 
   rated: "PG-13",
-  director: "Christopher Nolan"
 }
 movie = Movie.new(values)
 movie.save
