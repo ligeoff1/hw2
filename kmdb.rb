@@ -231,14 +231,21 @@ role.save
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
-puts "#{batmanbegins.title} #{batmanbegins.year_released} #{batmanbegins.rated} #{director.name}"
-puts "#{darkknight.title} #{darkknight.year_released} #{darkknight.rated} #{director.name}"
-puts "#{darkknightrises.title} #{darkknightrises.year_released} #{darkknightrises.rated} #{director.name}"
-
+puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
+#option #1
+#puts "#{batmanbegins.title} #{batmanbegins.year_released} #{batmanbegins.rated} #{director.name}"
+#puts "#{darkknight.title} #{darkknight.year_released} #{darkknight.rated} #{director.name}"
+#puts "#{darkknightrises.title} #{darkknightrises.year_released} #{darkknightrises.rated} #{director.name}"
+
+#option #2 - loop 
+movies = Movie.all
+for movie in movies
+  puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.person.name}"
+end
 
 # Prints a header for the cast output
 puts ""
@@ -248,3 +255,7 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+roles = Role.all
+for role in roles
+  puts "#{role.movie.title} #{role.person.name} #{role.character.name}"
+end
