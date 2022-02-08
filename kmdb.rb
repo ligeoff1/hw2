@@ -83,42 +83,89 @@ Role.destroy_all
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
-values = {
-  title: "Batman Begins",
-  year_released: 2005, 
-  rated: "PG-13",
-}
+
+#creating the movies 
+values = {title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: Person.where({name: "Christopher Nolan"})[0],}
 movie = Movie.new(values)
 movie.save
 
-values = {
-  title: "The Dark Knight",
-  year_released: 2008, 
-  rated: "PG-13",
-}
+values = {title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: Person.where({name: "Christopher Nolan"})[0],}
 movie = Movie.new(values)
 movie.save
 
-values = {
-  title: "The Dark Knight Rises",
-  year_released: 2012, 
-  rated: "PG-13",
-}
+values = {title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: Person.where({name: "Christopher Nolan"})[0],}
 movie = Movie.new(values)
 movie.save
 
+#creating variables 
 batmanbegins = Movie.where({ title: "Batman Begins" })[0]
 darkknight = Movie.where({ title: "The Dark Knight" })[0]
 darkknightrises = Movie.where({ title: "The Dark Knight Rises" })[0]
 
-puts Movie.all.inspect
+#creating people
+values = {name: "Christian Bale"}
+person = Person.new(values)
+person.save
 
-#Assigning the roles to Batman Begins 
+values = {name: "Michael Caine"}
+person = Person.new(values)
+person.save
+
+values = {name: "Liam Neeson"}
+person = Person.new(values)
+person.save
+
+values = {name: "Katie Holmes"}
+person = Person.new(values)
+person.save
+
+values = {name: "Gary Oldman"}
+person = Person.new(values)
+person.save
+
+values = {name: "Heath Ledger"}
+person = Person.new(values)
+person.save
+
+values = {name: "Aaron Eckhart"}
+person = Person.new(values)
+person.save
+
+values = {name: "Maggie Gyllenhaal"}
+person = Person.new(values)
+person.save
+
+values = {name: "Tom Hardy"}
+person = Person.new(values)
+person.save
+
+values = {name: "Joseph Gordon-Levitt"}
+person = Person.new(values)
+person.save
+
+values = {name: "Anne Hathaway"}
+person = Person.new(values)
+person.save
+
+values = {name: "Christopher Nolan"}
+person = Person.new(values)
+person.save
+
+
+
+
+
+
+
+
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
-puts ""
+puts "#{batmanbegins.title} #{batmanbegins.year_released} #{batmanbegins.rated}"
+puts "#{darkknight.title} #{darkknight.year_released} #{darkknight.rated}"
+puts "#{darkknightrises.title} #{darkknightrises.year_released} #{darkknightrises.rated}"
+
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
