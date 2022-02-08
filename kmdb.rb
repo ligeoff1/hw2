@@ -84,24 +84,6 @@ Role.destroy_all
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 
-#creating the movies 
-values = {title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: Person.where({name: "Christopher Nolan"})[0],}
-movie = Movie.new(values)
-movie.save
-
-values = {title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: Person.where({name: "Christopher Nolan"})[0],}
-movie = Movie.new(values)
-movie.save
-
-values = {title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: Person.where({name: "Christopher Nolan"})[0],}
-movie = Movie.new(values)
-movie.save
-
-#creating variables 
-batmanbegins = Movie.where({ title: "Batman Begins" })[0]
-darkknight = Movie.where({ title: "The Dark Knight" })[0]
-darkknightrises = Movie.where({ title: "The Dark Knight Rises" })[0]
-
 #creating people
 values = {name: "Christian Bale"}
 person = Person.new(values)
@@ -151,39 +133,112 @@ values = {name: "Christopher Nolan"}
 person = Person.new(values)
 person.save
 
-#Creating Roles 
-values = {character_name: "Bruce Wayne", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Christian Bale"})[0],}
+director = Person.where({name: "Christopher Nolan"})[0]
+#creating the movies 
+values = {title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: director.id}
+movie = Movie.new(values)
+movie.save
+
+values = {title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: director.id}
+movie = Movie.new(values)
+movie.save
+
+values = {title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: director.id}
+movie = Movie.new(values)
+movie.save
+
+#Creating movie roles - Batman Begins 
+batmanbegins = Movie.where({ title: "Batman Begins" })[0]
+actorname = Person.where({name: "Christian Bale"})[0]
+values = {character_name: "Bruce Wayne", movie_id: batmanbegins.id, person_id: actorname.id,}
 role = Role.new(values)
 role.save
 
-values = {character_name: "Alfred", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Michael Caine"})[0],}
+actorname = Person.where({name: "Michael Caine"})[0]
+values = {character_name: "Alfred", movie_id: batmanbegins.id, person_id: actorname.id,}
 role = Role.new(values)
 role.save
 
-values = {character_name: "Ra's Al Ghul", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Liam Neeson"})[0],}
+actorname = Person.where({name: "Liam Neeson"})[0]
+values = {character_name: "Ra's Al Ghul", movie_id: batmanbegins.id, person_id: actorname.id,}
 role = Role.new(values)
 role.save
 
-values = {character_name: "Rachel Dawes", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Katie Holmes"})[0],}
+actorname = Person.where({name: "Katie Holmes"})[0]
+values = {character_name: "Rachel Dawes", movie_id: batmanbegins.id, person_id: actorname.id,}
 role = Role.new(values)
 role.save
 
-values = {character_name: "Commissioner Gordon", movie_id: Movie.where({title: "Batman Begins"})[0], person_id: Person.where({name: "Gary Oldman"})[0],}
+actorname = Person.where({name: "Gary Oldman"})[0]
+values = {character_name: "Commissioner Gordon", movie_id: batmanbegins.id, person_id: actorname.id,}
 role = Role.new(values)
 role.save
 
-puts Role.all.inspect
+#Creating movie roles - The Dark Knight
+darkknight = Movie.where({ title: "The Dark Knight" })[0]
+actorname = Person.where({name: "Christian Bale"})[0]
+values = {character_name: "Bruce Wayne", movie_id: darkknight.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Heath Ledger"})[0]
+values = {character_name: "Joker", movie_id: darkknight.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Aaron Eckhart"})[0]
+values = {character_name: "Harvey Dent", movie_id: darkknight.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Michael Caine"})[0]
+values = {character_name: "Alfred", movie_id: darkknight.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Maggie Gyllenhaal"})[0]
+values = {character_name: "Rachel Dawes", movie_id: darkknight.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+#creating movie roles - The Dark Knight Rises  
+darkknightrises = Movie.where({ title: "The Dark Knight Rises" })[0]
+actorname = Person.where({name: "Christian Bale"})[0]
+values = {character_name: "Bruce Wayne", movie_id: darkknightrises.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Gary Oldman"})[0]
+values = {character_name: "Comissioner Gordon", movie_id: darkknightrises.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Tom Hardy"})[0]
+values = {character_name: "Bane", movie_id: darkknightrises.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Joseph Gordon-Levitt"})[0]
+values = {character_name: "John Blake", movie_id: darkknightrises.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
+
+actorname = Person.where({name: "Anne Hathaway"})[0]
+values = {character_name: "Selina Kyle", movie_id: darkknightrises.id, person_id: actorname.id,}
+role = Role.new(values)
+role.save
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
-puts "#{batmanbegins.title} #{batmanbegins.year_released} #{batmanbegins.rated}"
-puts "#{darkknight.title} #{darkknight.year_released} #{darkknight.rated}"
-puts "#{darkknightrises.title} #{darkknightrises.year_released} #{darkknightrises.rated}"
+puts "#{batmanbegins.title} #{batmanbegins.year_released} #{batmanbegins.rated} #{director.name}"
+puts "#{darkknight.title} #{darkknight.year_released} #{darkknight.rated} #{director.name}"
+puts "#{darkknightrises.title} #{darkknightrises.year_released} #{darkknightrises.rated} #{director.name}"
 
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+
 
 # Prints a header for the cast output
 puts ""
